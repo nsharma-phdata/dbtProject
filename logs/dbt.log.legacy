@@ -1,2 +1,0 @@
-2022-08-09 09:16:07.360421 (MainThread): You have an incompatible version of 'pyarrow' installed (9.0.0), please install a version that adheres to: 'pyarrow<8.1.0,>=8.0.0; extra == "pandas"'
-2022-08-11 02:21:15.146046 (MainThread): You have an incompatible version of 'pyarrow' installed (9.0.0), please install a version that adheres to: 'pyarrow<8.1.0,>=8.0.0; extra == "pandas"'
