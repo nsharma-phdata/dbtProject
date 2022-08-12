@@ -1,8 +1,3 @@
-{{
-config(
-    materialized = 'view'
-)
-}}
 WITH src_hosts AS (
     SELECT
     *
@@ -14,6 +9,7 @@ SELECT
     NVL(host_name,'Anonymous') AS host_name,
     is_superhost,
     created_at,
-    updated_at
+    updated_at,
+    current_timestamp() AS staged_at
 FROM
     src_hosts

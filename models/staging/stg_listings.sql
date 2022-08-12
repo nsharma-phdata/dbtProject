@@ -15,6 +15,7 @@ SELECT
     host_id,
     REPLACE(price_str,'$') :: NUMBER(10,2) AS price,
     created_at,
-    updated_at
+    updated_at,
+    current_timestamp() AS staged_at
 FROM
     src_listings
