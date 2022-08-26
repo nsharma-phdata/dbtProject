@@ -1,4 +1,4 @@
-name: schedule_dbt_job
+   name: schedule_dbt_job
 
    on:
    schedule:
@@ -34,6 +34,7 @@ name: schedule_dbt_job
            pip install dbt
            dbt deps
 
+       # dbt related commands here - run use --target prod/dev to run for specific environments
        - name: Run dbt models
            run: dbt run
 
