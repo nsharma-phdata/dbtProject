@@ -1,0 +1,36 @@
+name: scheduled_run
+
+on:
+  schedule:
+    - cron:  '0 5,17 * * *'
+env:
+   DBT_PROFILES_DIR: ./
+
+   DBT_SNOWFLAKE_USERNAME: ${{ secrets.DBT_SNOWFLAKE_USERNAME }}
+   DBT_SNOWFLAKE_PW: ${{ secrets.DBT_SNOWFLAKE_PW }}
+   DBT_SNOWFLAKE_ROLE: ${{ secrets.DBT_SNOWFLAKE_ROLE }}
+   
+jobs:
+  scheduled_run:
+    name: scheduled_run
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@master
+
+      - uses: actions/setup-python@v1
+        with:
+          python-version: "3.7.x"
+
+      - name: Install dependencies
+        run: |
+          pip install dbt
+          dbt deps --target prod
+      
+      # Add dbt seed or other commands here if needed
+      - name: Run dbt models
+        run: dbt run --target prod
+
+      - name: Test dbt models
+        run: dbt test --target prod
