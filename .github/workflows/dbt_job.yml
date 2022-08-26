@@ -28,13 +28,13 @@
            python-version: "3.7.x"
 
        - name: Install dependencies
-           run: |
+         run: |
            pip install dbt
            dbt deps
 
        
        - name: Run dbt models
-           run: dbt run
+         run: dbt run
 
        - name: Test dbt models
-           run: dbt test	   
+         run: dbt test	   
