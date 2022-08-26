@@ -6,7 +6,7 @@
    push:
        branches:
 
-       - development
+       - master
    env:
    DBT_PROFILES_DIR: ./
 
