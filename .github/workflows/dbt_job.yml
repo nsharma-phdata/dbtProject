@@ -1,13 +1,11 @@
-   name: schedule_dbt_job
+   name: dbt_job
 
    on:
    schedule:
-       # run at 7AM every single day
-       # https://crontab.guru <-- for generating CRON expression
        - cron: "0 7 * * *"
    push:
        branches:
-       # run on push to development branch
+
        - development
    env:
    DBT_PROFILES_DIR: ./
@@ -18,7 +16,7 @@
 
    jobs:
    schedule_dbt_job:
-       name: schedule_dbt_job
+       name: dbt_job
        runs-on: ubuntu-latest
 
        steps:
