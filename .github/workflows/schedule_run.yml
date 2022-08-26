@@ -3,13 +3,18 @@ name: scheduled_run
 on:
   schedule:
     - cron:  '0 5,17 * * *'
+
+push:
+    branches:
+    - development
+
 env:
    DBT_PROFILES_DIR: ./
 
    DBT_SNOWFLAKE_USERNAME: ${{ secrets.DBT_SNOWFLAKE_USERNAME }}
    DBT_SNOWFLAKE_PW: ${{ secrets.DBT_SNOWFLAKE_PW }}
    DBT_SNOWFLAKE_ROLE: ${{ secrets.DBT_SNOWFLAKE_ROLE }}
-   
+
 jobs:
   scheduled_run:
     name: scheduled_run
@@ -26,11 +31,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install dbt
-          dbt deps --target prod
+          dbt deps 
       
       # Add dbt seed or other commands here if needed
       - name: Run dbt models
-        run: dbt run --target prod
+        run: dbt run 
 
       - name: Test dbt models
-        run: dbt test --target prod
+        run: dbt test 
