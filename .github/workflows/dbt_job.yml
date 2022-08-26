@@ -21,10 +21,10 @@
 
        steps:
        - name: Check out
-           uses: actions/checkout@master
+         uses: actions/checkout@master
 
        - uses: actions/setup-python@v1
-           with:
+         with:
            python-version: "3.7.x"
 
        - name: Install dependencies
